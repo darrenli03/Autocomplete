@@ -107,8 +107,13 @@ public class TestTerm {
 		// Test prefix case
 		Term[] terms4 = getTerms();
 		Term[] sorted4 = { terms4[0], terms4[1], terms4[2], terms4[3], terms4[4], terms4[5], terms4[6] };
+		System.out.println("original: " + Arrays.asList(terms4));
+
 		Collections.shuffle(Arrays.asList(terms4));
+		System.out.println("shuffled: " + Arrays.asList(terms4));
+
 		Arrays.sort(terms4, PrefixComparator.getComparator(10));
+		System.out.println("sorted: " + Arrays.asList(terms4));
 		assertArrayEquals(sorted4, terms4);
 
 		// Test zero case
