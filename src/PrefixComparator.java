@@ -44,6 +44,7 @@ public class PrefixComparator implements Comparator<Term> {
      * @return < 0 if v < w, == 0 if v == w, and > 0 if v > w
      */
     public int compare(Term v, Term w) {
+        /*
         String wordV = v.getWord();
         String wordW = w.getWord();
 
@@ -66,26 +67,26 @@ public class PrefixComparator implements Comparator<Term> {
         }
         //if both prefixes are equal
         return 0;
+*/
 
+        String wordV = v.getWord();
+//        System.out.println(wordV);
+        String wordW = w.getWord();
+//        System.out.println(wordW + "\n");
 
-//        String wordV = v.getWord();
-////        System.out.println(wordV);
-//        String wordW = w.getWord();
-////        System.out.println(wordW + "\n");
-//
-//        // if either word is shorter than prefix, compare the word lengths
-//        if (wordV.length() < myPrefixSize || wordW.length() < myPrefixSize) {
-////            this works because of override in Term class
-////            System.out.println(v.compareTo(w));
-//            return v.compareTo(w);
-////            return wordV.compareTo(wordW);
-//
-//        } else {//prefix shorter or same size as both words
-//            String prefixV = v.getWord().substring(0, myPrefixSize);
-//            String prefixW = w.getWord().substring(0, myPrefixSize);
-////            System.out.println("used prefixes: " + prefixV.compareTo(prefixW));
-//            return prefixV.compareTo(prefixW);
-//        }
+        // if either word is shorter than prefix, compare the word lengths
+        if (wordV.length() < myPrefixSize || wordW.length() < myPrefixSize) {
+//            this works because of override in Term class
+//            System.out.println(v.compareTo(w));
+            return v.compareTo(w);
+//            return wordV.compareTo(wordW);
+
+        } else {//prefix shorter or same size as both words
+            String prefixV = v.getWord().substring(0, myPrefixSize);
+            String prefixW = w.getWord().substring(0, myPrefixSize);
+//            System.out.println("used prefixes: " + prefixV.compareTo(prefixW));
+            return prefixV.compareTo(prefixW);
+        }
 
     }
 }
