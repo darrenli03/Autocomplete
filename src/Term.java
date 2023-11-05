@@ -33,7 +33,7 @@ public class Term implements Comparable<Term> {
 			throw new NullPointerException("no null strings");
 		}
 		if (weight < 0.0) {
-			throw new IllegalArgumentException("no negative weigths: " + weight);
+			throw new IllegalArgumentException("no negative weights: " + weight);
 		}
 
 		myWord = word;
