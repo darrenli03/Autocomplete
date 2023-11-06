@@ -111,9 +111,11 @@ public class BinarySearchAutocomplete implements Autocompletor {
 		if (first == -1) {               // prefix not found
 			return new ArrayList<>();
 		}
-		List<Term> shortList = new ArrayList<>(Arrays.asList(myTerms));
-		List<Term> subList = shortList.subList(first, last + 1);
+		Term[] subList = new Term[last+1-first];
+		System.arraycopy(myTerms, first, subList, 0, last+1-first);
+//		List<Term> subList = new ArrayList<>(Arrays.asList(myTerms)).subList(first, last + 1);
 		PriorityQueue<Term> pq = new PriorityQueue<>(Comparator.comparing(Term::getWeight));
+
 		for (Term t : subList) {
 			if (!t.getWord().startsWith(prefix)) {
 				continue; // don't process if doesn't begin with prefix
