@@ -112,7 +112,7 @@ public class BinarySearchAutocomplete implements Autocompletor {
 			return new ArrayList<>();
 		}
 
-		PriorityQueue<Term> pq = new PriorityQueue<>(Comparator.comparing(Term::getWeight));
+		PriorityQueue<Term> pq = new PriorityQueue<>(k,Comparator.comparing(Term::getWeight));
 		for (Term t : myTerms) {
 			if (!t.getWord().startsWith(prefix)) {
 				continue; // don't process if doesn't begin with prefix
