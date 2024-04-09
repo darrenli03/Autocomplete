@@ -90,19 +90,22 @@ public class BinaryBenchmark {
 			int size = 1 << k;						
 			ArrayList<String> list = createList(size);
 			
-            /** 
+
             comp.reset();
 			int sdex = standard(list,target,comp);
 			int scomp = comp.getCount();
 			comp.reset();
-			int bdex = bsearch(list, target, comp);
+
+             int bdex = bsearch(list, target, comp);
 			int bcomp = comp.getCount();
-            **/
-            int slowdex = BinarySearchLibrary.firstIndexSlow(list,target,comp);
+
+
+            int slowdex = BinarySearchLibrary.firstIndex(list,target,comp);
             int slowcount = comp.getCount();
 			comp.reset();
 			int fdex = firstMatch(list, target, comp);
 			int fcomp = comp.getCount();
+
 			System.out.printf("%8d\t%d\t%d\t%d\t%d\n",
 							  size,slowdex,slowcount,fdex,fcomp);
 		}

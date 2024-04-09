@@ -58,7 +58,6 @@ public class PrefixComparator implements Comparator<Term> {
 
             char charV = wordV.charAt(i);
             char charW = wordW.charAt(i);
-
             //detects char where prefixes are not equal, determines which word should go first
             if(charV!=charW){
                 return charV - charW;

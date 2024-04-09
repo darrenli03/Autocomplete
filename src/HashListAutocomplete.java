@@ -37,10 +37,10 @@ public class HashListAutocomplete implements Autocompletor {
             mySize += terms[i].length() * 2 + 8;
             //add term to each possible prefix key in map
             for (int j = 0; j <= Math.min(MAX_PREFIX, currentTerm.getWord().length()); j++) {
-                String prefix = (j == 0) ? "" : currentTerm.getWord().substring(0, j);
+                String prefix = currentTerm.getWord().substring(0, j);
 
                 List<Term> termsAL = myMap.getOrDefault(prefix, new ArrayList<Term>());
-
+                //if we had to add a new prefix (key) to the map, termsAL is empty
                 if(termsAL.isEmpty()){
                     mySize += 2 * prefix.length();
                 }
@@ -49,7 +49,7 @@ public class HashListAutocomplete implements Autocompletor {
                 myMap.put(prefix, termsAL);
             }
         }
-        System.out.println(mySize);
+//        System.out.println(mySize);
 
         //once map values are added, we need to sort each list by weight, highest weight first
         for (List<Term> list : myMap.values()) {
